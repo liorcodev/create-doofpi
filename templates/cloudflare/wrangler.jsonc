@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "api-template",
+  "main": "entrypoint.ts",
+  "compatibility_date": "2026-01-27",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "logs": { "enabled": true, "invocation_logs": true } },
+  "r2_buckets": [{ "binding": "R2", "bucket_name": "api-template-profiles" }],
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "api-template",
+    "database_id": "00000000-0000-0000-0000-000000000000",
+    "migrations_dir": "drizzle"
+  }],
+  "env": {
+    "preview": {
+      "name": "api-template-preview",
+      "workers_dev": true,
+      "preview_urls": false,
+      "r2_buckets": [{ "binding": "R2", "bucket_name": "api-template-profiles-preview" }],
+      "d1_databases": [{
+        "binding": "DB",
+        "database_name": "api-template-preview",
+        "database_id": "00000000-0000-0000-0000-000000000000",
+        "migrations_dir": "drizzle"
+      }]
+    },
+    "dev": {
+      "name": "api-template-dev",
+      "r2_buckets": [{ "binding": "R2", "bucket_name": "api-template-profiles-local" }],
+      "d1_databases": [{
+        "binding": "DB",
+        "database_name": "api-template-local-db",
+        "database_id": "api-template-local-db",
+        "migrations_dir": "drizzle"
+      }]
+    }
+  }
+}

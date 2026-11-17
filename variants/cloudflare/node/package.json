@@ -1,0 +1,45 @@
+{
+  "name": "api-template",
+  "module": "entrypoint.ts",
+  "type": "module",
+  "scripts": {
+    "db:init:local": "tsx scripts/init-local-db.ts",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "types": "wrangler types --env dev",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:migrate:preview": "cross-env REMOTE_DB=preview drizzle-kit migrate",
+    "db:migrate:production": "cross-env REMOTE_DB=production drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "dev": "node ./node_modules/wrangler/bin/wrangler.js dev --env dev --local",
+    "deploy:preview": "wrangler deploy --env preview",
+    "deploy:production": "wrangler deploy --env=\"\"",
+    "version:upload": "wrangler versions upload",
+    "version:deploy": "wrangler versions deploy"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "better-sqlite3": "^12.11.1",
+    "cross-env": "^10.1.0",
+    "doofpi-docs-generator": "^0.2.0",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^10.15.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.0",
+    "typescript-eslint": "^8.73.0",
+    "wrangler": "^4.153.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "doofpi": "^1.2.0",
+    "drizzle-orm": "^0.45.4",
+    "drizzle-zod": "^0.8.3",
+    "nanoid": "^5.1.16",
+    "zod": "^4.6.7"
+  }
+}

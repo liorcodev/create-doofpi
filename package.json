@@ -1,0 +1,39 @@
+{
+  "name": "create-doofpi",
+  "version": "1.0.0",
+  "description": "Scaffold a new doofpi project",
+  "license": "MIT",
+  "author": "Lior Cohen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liorcodev/create-doofpi.git"
+  },
+  "homepage": "https://liorcodev.github.io/doofpi-docs/",
+  "bugs": {
+    "url": "https://github.com/liorcodev/create-doofpi/issues"
+  },
+  "keywords": [
+    "doofpi",
+    "create",
+    "scaffold",
+    "api",
+    "cloudflare",
+    "drizzle"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "bin": {
+    "create-doofpi": "./bin/create-doofpi.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates",
+    "variants"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
